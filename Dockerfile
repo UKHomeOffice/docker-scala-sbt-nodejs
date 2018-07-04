@@ -1,5 +1,6 @@
 FROM quay.io/ukhomeofficedigital/scala-sbt:latest
-  
+MAINTAINER massimo.danieli@digital.homeoffice.gov.uk
+
 ENV ARTIFACTORY_USERNAME=user \
     ARTIFACTORY_PASSWORD=pass \
     SBT_CREDENTIALS="/root/.sbt/.credentials" \
