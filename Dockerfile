@@ -1,12 +1,11 @@
 FROM quay.io/ukhomeofficedigital/scala-sbt:latest
 
-# Install Scala.js dependencies
+# Install NodeJs
 RUN \
   curl -sL https://raw.githubusercontent.com/nodesource/distributions/master/rpm/setup_6.x | bash - && \
   yum install -y nodejs
 
 # Install yarn
-
 RUN \
   curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.repo && \
   yum install -y yarn
