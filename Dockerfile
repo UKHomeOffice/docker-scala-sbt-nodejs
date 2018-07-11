@@ -4,7 +4,6 @@ FROM quay.io/ukhomeofficedigital/scala-sbt:latest
 RUN \
   curl -sL https://raw.githubusercontent.com/nodesource/distributions/master/rpm/setup_6.x | bash - && \
   yum install -y nodejs && \
-  npm install jsdom@v9 source-map-support
 
 # Install yarn
 
