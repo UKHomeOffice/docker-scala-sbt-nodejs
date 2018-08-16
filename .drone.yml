@@ -1,7 +1,7 @@
 pipeline:
   build:
     environment:
-      - DOCKER_USERNAME=ukhomeofficedigital+scala_sbt_nodejs
+      - DOCKER_USERNAME=ukhomeofficedigital+drt_quay
     image: quay.io/ukhomeofficedigital/drone-docker
     registry: quay.io
     repo: quay.io/ukhomeofficedigital/scala-sbt-nodejs
@@ -14,7 +14,7 @@ pipeline:
 
   build_tag:
     environment:
-      - DOCKER_USERNAME=ukhomeofficedigital+scala_sbt_nodejs
+      - DOCKER_USERNAME=ukhomeofficedigital+drt_quay
     image: quay.io/ukhomeofficedigital/drone-docker
     registry: quay.io
     repo: quay.io/ukhomeofficedigital/scala-sbt-nodejs
