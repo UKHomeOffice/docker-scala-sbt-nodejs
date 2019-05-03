@@ -1,4 +1,4 @@
-FROM quay.io/ukhomeofficedigital/scala-sbt:latest
+FROM quay.io/ukhomeofficedigital/scala-sbt:v0.4.0
 
 # Install NodeJs
 RUN \
