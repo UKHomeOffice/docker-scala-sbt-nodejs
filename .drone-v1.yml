@@ -1,0 +1,62 @@
+---
+
+kind: pipeline
+name: Scala SBT NodeJS
+type: kubernetes
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: build-image
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
+    commands:
+      # wait for docker service to be up before running docker build
+      - n=0; while [ "$n" -lt 60 ] && [ ! -e /var/run/docker.sock ]; do n=$(( n + 1 )); sleep 1; done
+      - docker build -t quay.io/ukhomeofficedigital/scala-sbt-nodejs:$${DRONE_COMMIT_SHA} .
+    when:
+      event: push
+
+  - name: publish-tag
+    image: plugins/docker
+    settings:
+      registry: quay.io
+      repo: quay.io/ukhomeofficedigital/scala-sbt-nodejs
+      tags: ${DRONE_TAG}
+    environment:
+      DOCKER_USERNAME: ukhomeofficedigital+drt_quay
+      DOCKER_PASSWORD:
+        from_secret: DOCKER_PASSWORD
+    when:
+      event:
+        - tag
+
+services:
+  - name: docker
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
+
+#  build:
+#    environment:
+#      - DOCKER_USERNAME=ukhomeofficedigital+drt_quay
+#    image: quay.io/ukhomeofficedigital/drone-docker
+#    registry: quay.io
+#    repo: quay.io/ukhomeofficedigital/scala-sbt-nodejs
+#    secrets: [ docker_password ]
+#    tags:
+#      - ${DRONE_COMMIT_SHA}
+#      - latest
+#    when:
+#      event: push
+#
+#  build_tag:
+#    environment:
+#      - DOCKER_USERNAME=ukhomeofficedigital+drt_quay
+#    image: quay.io/ukhomeofficedigital/drone-docker
+#    registry: quay.io
+#    repo: quay.io/ukhomeofficedigital/scala-sbt-nodejs
+#    secrets: [ docker_password ]
+#    tags:
+#      - ${DRONE_TAG}
+#    when:
+#      event: tag
