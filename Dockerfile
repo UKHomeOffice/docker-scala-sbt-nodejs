@@ -1,8 +1,8 @@
-FROM quay.io/ukhomeofficedigital/scala-sbt:v0.4.0
+FROM quay.io/ukhomeofficedigital/scala-sbt:v0.5.0
 
 # Install NodeJs
 RUN \
-  curl -sL https://raw.githubusercontent.com/nodesource/distributions/master/rpm/setup_12.x | bash - && \
+  curl -sL https://raw.githubusercontent.com/nodesource/distributions/master/rpm/setup_16.x | bash - && \
   yum install -y nodejs
 
 # Install yarn
@@ -11,3 +11,4 @@ RUN \
   yum install -y yarn
 
 ENTRYPOINT ["/root/entrypoint.sh"]
+
