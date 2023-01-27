@@ -11,3 +11,4 @@ RUN \
   yum install -y yarn
 
 ENTRYPOINT ["/root/entrypoint.sh"]
+
