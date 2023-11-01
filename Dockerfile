@@ -39,5 +39,3 @@ ENV SBT_CREDENTIALS="/app/.ivy2/.credentials"
 ENV SBT_OPTS="-Duser.home=/app -Dsbt.override.build.repos=true -Dsbt.ivy.home=/app/.ivy2"
 
 ENTRYPOINT ["/app/entrypoint.sh"]
-
-#RUN export PATH="/usr/local/sbt/bin:$PATH" &&  apk update && apk add ca-certificates wget tar openjdk17-jre-headless && mkdir -p "/usr/local/sbt" && wget -qO - --no-check-certificate "https://github.com/sbt/sbt/releases/download/v1.7.2/sbt-1.7.2.tgz" | tar xz -C /usr/local --strip-components=1 && sbt sbtVersion
