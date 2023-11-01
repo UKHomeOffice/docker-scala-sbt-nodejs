@@ -15,7 +15,7 @@ RUN apk add --no-cache --virtual=.build-dependencies wget ca-certificates && \
     mv "/tmp/scala-${SCALA_VERSION}/bin" "/tmp/scala-${SCALA_VERSION}/lib" "${SCALA_HOME}" && \
     ln -s "${SCALA_HOME}/bin/"* "/usr/bin/" && \
     apk del .build-dependencies && \
-    rm -rf "/tmp/"* \
+    rm -rf "/tmp/"*
 
 
 RUN groupadd -r app -g 1000 && \
