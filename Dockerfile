@@ -29,7 +29,7 @@ RUN wget https://github.com/sbt/sbt/releases/download/v1.7.2/sbt-1.7.2.tgz
 RUN tar -xvf sbt-1.7.2.tgz
 
 RUN mkdir -p /app/.sbt /app/.ivy2
-COPY repositories /app/.sbt/repositories
+#COPY repositories /app/.sbt/repositories
 COPY entrypoint.sh /app/entrypoint.sh
 
 ENV LANGUAGE=en_GB:en
