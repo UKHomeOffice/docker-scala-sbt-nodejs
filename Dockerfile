@@ -18,8 +18,8 @@ RUN apk add --no-cache --virtual=.build-dependencies wget ca-certificates && \
     rm -rf "/tmp/"*
 
 
-RUN addgroup -r app -g 1000 && \
-    adduser -r -g app -u 1000 app -d /app && \
+RUN addgroup -g 1000 app && \
+    adduser -G app -u 1000 -h /app app && \
     mkdir -p /app && \
     chown -R app:app /app
 
