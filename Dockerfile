@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:18
 
 
 ENV SCALA_VERSION=2.13.12 \
