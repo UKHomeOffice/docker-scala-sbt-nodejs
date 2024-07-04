@@ -4,6 +4,12 @@ FROM node:20-alpine
 ENV SCALA_VERSION=2.13.12 \
     SCALA_HOME=/usr/share/scala
 
+RUN apk add --update curl bash && \
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash && \
+    source ~/.bashrc && \
+    nvm install 18 && \
+    nvm use 18 \
+
 # NOTE: bash is used by scala/scalac scripts, and it cannot be easily replaced with ash.
 RUN apk add --no-cache --virtual=.build-dependencies wget ca-certificates && \
     apk add --no-cache bash curl jq && \
