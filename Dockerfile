@@ -6,9 +6,12 @@ ENV SCALA_VERSION=2.13.12 \
 
 RUN apk add --update curl bash && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash && \
+    echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bashrc && \
+    echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bashrc && \
     source ~/.bashrc && \
     nvm install 18 && \
-    nvm use 18 \
+    nvm use 18 && \
+    node -v && \
 
 # NOTE: bash is used by scala/scalac scripts, and it cannot be easily replaced with ash.
 RUN apk add --no-cache --virtual=.build-dependencies wget ca-certificates && \
