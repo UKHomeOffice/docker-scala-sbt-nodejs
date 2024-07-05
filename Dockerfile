@@ -1,5 +1,4 @@
-FROM node:18
-
+FROM node:18-alpine
 
 ENV SCALA_VERSION=2.13.12 \
     SCALA_HOME=/usr/share/scala
