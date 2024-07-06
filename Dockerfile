@@ -32,6 +32,7 @@ RUN chown -R app:app /app
 WORKDIR /app
 
 RUN mkdir -p /app/.sbt /app/.ivy2
+COPY repositories /app/.sbt/repositories
 COPY entrypoint.sh /app/entrypoint.sh
 
 ENV LANGUAGE=en_GB:en
