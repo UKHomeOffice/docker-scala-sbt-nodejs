@@ -3,8 +3,9 @@ FROM node:20-alpine
 
 RUN export PATH="/usr/local/sbt/bin:$PATH"
 RUN apk update
-RUN apk add openjdk21-jre-headless
+RUN apk add --no-cache openjdk21-jre-headless
 RUN apk add --no-cache bash ca-certificates curl tar git
+RUN git --version
 RUN mkdir -p "/usr/local/sbt" && curl -L "https://github.com/sbt/sbt/releases/download/v1.9.7/sbt-1.9.7.tgz" | tar -xvz -C /usr/local --strip-components=1
 RUN sbt -Dsbt.rootdir=true sbtVersion
 
@@ -18,6 +19,7 @@ WORKDIR /app
 RUN mkdir -p /app/.sbt /app/.ivy2
 COPY repositories /app/.sbt/repositories
 COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 
 ENV LANGUAGE=en_GB:en
 ENV GDM_LANG=en_GB.utf8
