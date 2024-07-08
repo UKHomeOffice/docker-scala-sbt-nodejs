@@ -3,7 +3,7 @@ FROM node:20-alpine
 
 RUN export PATH="/usr/local/sbt/bin:$PATH"
 RUN apk update
-RUN apk add --no-cache openjdk21-jre-headless
+RUN apk add --no-cache openjdk17-jre-headless
 RUN apk add --no-cache bash ca-certificates curl tar git
 RUN echo "Checking git installation..." && \
     ls -la /usr/bin/ && \
