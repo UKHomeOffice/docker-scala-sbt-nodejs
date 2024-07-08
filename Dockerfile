@@ -3,7 +3,7 @@ FROM node:20-alpine
 
 RUN export PATH="/usr/local/sbt/bin:$PATH"
 RUN apk update
-RUN apk add --no-cache openjdk21-jre-headless
+RUN apk add --no-cache openjdk11-jre-headless
 RUN apk add --no-cache bash ca-certificates curl tar git
 RUN git --version
 RUN mkdir -p "/usr/local/sbt" && curl -L "https://github.com/sbt/sbt/releases/download/v1.9.7/sbt-1.9.7.tgz" | tar -xvz -C /usr/local --strip-components=1
