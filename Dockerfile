@@ -1,6 +1,5 @@
 FROM node:20-alpine
 
-
 RUN export PATH="/usr/local/sbt/bin:$PATH"
 RUN apk update
 RUN apk add --no-cache openjdk11-jre-headless
@@ -16,8 +15,12 @@ RUN chown -R app:app /app
 
 WORKDIR /app
 
-RUN mkdir -p /app/.sbt /app/.ivy2
+MKDIR -p /app/.sbt /app/.ivy2
 COPY repositories /app/.sbt/repositories
+
+MKDIR -p /app/.cache/
+CHMOD -R 777 /app/.cache/
+
 COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
