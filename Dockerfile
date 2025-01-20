@@ -15,11 +15,11 @@ RUN chown -R app:app /app
 
 WORKDIR /app
 
-MKDIR -p /app/.sbt /app/.ivy2
+RUN mkdir -p /app/.sbt /app/.ivy2
 COPY repositories /app/.sbt/repositories
 
-MKDIR -p /app/.cache/
-CHMOD -R 777 /app/.cache/
+RUN mkdir -p /app/.cache
+RUN chmod -R 777 /app/.cache
 
 COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
