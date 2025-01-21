@@ -12,12 +12,17 @@ RUN adduser -G app -u 1001 -h /app -D app
 
 WORKDIR /app
 
+COPY entrypoint.sh /app/entrypoint.sh
+RUN ls -l /app/entrypoint.sh
+RUN chown app:app /app/entrypoint.sh
+RUN chmod u+x /app/entrypoint.sh
+
+USER app
+
 RUN mkdir -p /app/.sbt
 COPY repositories /app/.sbt/repositories
-RUN chown -R app:app /app/.sbt
 
-COPY entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
+RUN ls -la /app
 
 ENV LANGUAGE=en_GB:en
 ENV GDM_LANG=en_GB.utf8
