@@ -1,5 +1,6 @@
 [repositories]
   local
+  akka: https://artifactory.digital.homeoffice.gov.uk/artifactory/akka/
   lib-releases: https://artifactory.digital.homeoffice.gov.uk/artifactory/libs-release/
   plugins-releases: https://artifactory.digital.homeoffice.gov.uk/artifactory/plugins-release/
   lib-snapshots: https://artifactory.digital.homeoffice.gov.uk/artifactory/libs-snapshot/
@@ -8,4 +9,3 @@
   remote-repos: https://artifactory.digital.homeoffice.gov.uk/artifactory/remote-repos/
   jcenter-cache: https://artifactory.digital.homeoffice.gov.uk/artifactory/jcenter-cache/
   jitpack: https://artifactory.digital.homeoffice.gov.uk/artifactory/jitpack_remote/
-  akka: https://artifactory.digital.homeoffice.gov.uk/artifactory/akka/
