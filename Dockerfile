@@ -4,10 +4,8 @@ RUN export PATH="/usr/local/sbt/bin:$PATH"
 
 RUN apt update
 
-RUN wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb
-RUN dpkg -i jdk-21_linux-x64_bin.deb
-#RUN apt install -y openjdk-21-jre-headless ca-certificates curl tar git protobuf-compiler
-#RUN apt clean
+RUN apt install -y openjdk-17-jre-headless ca-certificates curl tar git protobuf-compiler
+RUN apt clean
 
 RUN mkdir -p /usr/local/sbt
 RUN curl -L "https://github.com/sbt/sbt/releases/download/v1.9.9/sbt-1.9.9.tgz" | tar -xvz -C /usr/local --strip-components=1
