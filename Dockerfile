@@ -4,7 +4,7 @@ RUN export PATH="/usr/local/sbt/bin:$PATH"
 
 RUN apt update
 
-RUN apt install -y openjdk-17-jre-headless ca-certificates curl tar git protobuf-compiler
+RUN apt install -y openjdk-21-jre-headless ca-certificates curl tar git protobuf-compiler
 RUN apt clean
 
 RUN mkdir -p /usr/local/sbt
