@@ -1,4 +1,4 @@
-FROM node:22-bookworm
+FROM node:20-bookworm
 
 RUN export PATH="/usr/local/sbt/bin:$PATH"
 
