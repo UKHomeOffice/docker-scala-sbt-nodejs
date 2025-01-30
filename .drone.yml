@@ -39,27 +39,3 @@ services:
   - name: docker
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
 
-#  build:
-#    environment:
-#      - DOCKER_USERNAME=ukhomeofficedigital+drt_quay
-#    image: quay.io/ukhomeofficedigital/drone-docker
-#    registry: quay.io
-#    repo: quay.io/ukhomeofficedigital/scala-sbt-nodejs
-#    secrets: [ docker_password ]
-#    tags:
-#      - ${DRONE_COMMIT_SHA}
-#      - latest
-#    when:
-#      event: push
-#
-#  build_tag:
-#    environment:
-#      - DOCKER_USERNAME=ukhomeofficedigital+drt_quay
-#    image: quay.io/ukhomeofficedigital/drone-docker
-#    registry: quay.io
-#    repo: quay.io/ukhomeofficedigital/scala-sbt-nodejs
-#    secrets: [ docker_password ]
-#    tags:
-#      - ${DRONE_TAG}
-#    when:
-#      event: tag
